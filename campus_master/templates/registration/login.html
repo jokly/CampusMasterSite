@@ -1,0 +1,33 @@
+{% extends 'campus_master/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                Логин или пароль неверны. Попробуйте снова.
+            </div>
+        {% endif %}
+
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}">{{ form.username.label_tag }}</label>
+                <input type="text" class="form-control" id="{{ form.username.id_for_label }}" name="{{ form.username.html_name }}" placeholder="Login">
+            </div>
+            <div class="form-group">
+                <label for="{{ form.password.id_for_label }}">{{ form.password.label_tag }}</label>
+                <input type="password" class="form-control" id="{{ form.password.id_for_label }}" name="{{ form.password.html_name }}" placeholder="Password">
+            </div>
+
+            <!-- <a href="{% url 'password_reset' %}">Забыли пароль?</a><br><br> -->
+
+            <button type="submit" value="login" class="btn btn-primary">Войти</button>
+            <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+    </div>
+</div>
+
+{% endblock %}

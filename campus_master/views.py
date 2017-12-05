@@ -28,7 +28,7 @@ def export_complaints_xls(request):
     font_style = xlwt.XFStyle()
     font_style.font.bold = True
 
-    columns = ['Комната', 'Телефон', 'Жалоба']
+    columns = ['Комната', 'Жалоба']
 
     for col_num in range(len(columns)):
         ws.write(row_num, col_num, columns[col_num], font_style)
@@ -41,8 +41,7 @@ def export_complaints_xls(request):
         row_num += 1
 
         ws.write(row_num, 0, row.chat.room, font_style)
-        ws.write(row_num, 1, row.chat.telephone_number, font_style)
-        ws.write(row_num, 2, row.text, font_style)
+        ws.write(row_num, 1, row.text, font_style)
 
     wb.save(response)
 

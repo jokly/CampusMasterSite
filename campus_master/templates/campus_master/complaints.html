@@ -6,7 +6,6 @@
             <thead>
                 <tr>
                     <th scope="col">Комната</th>
-                    <th scope="col">Телефон</th>
                     <th scope="col">Жалоба</th>
                 </tr>
             </thead>
@@ -14,7 +13,6 @@
                 {% for item in data %}
                     <tr>
                         <th scope="row">{{ item.chat.room }}</th>
-                        <th>{{ item.chat.telephone_number }}</th>
                         <td>{{ item.text }}</td>
                     </tr>
                 {% endfor %}

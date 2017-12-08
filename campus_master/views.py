@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 import xlwt
-from .models import Complaint
+from .models import Complaint, Status
 
 # Create your views here.
 
@@ -46,3 +46,9 @@ def export_complaints_xls(request):
     wb.save(response)
 
     return response
+
+
+def status(request):
+    data = Status.objects.all()
+
+    return render(request, 'campus_master/status.html', {'data': data})

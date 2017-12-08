@@ -8,6 +8,14 @@
 from django.db import models
 
 
+ROOM_LEN = 5
+
+
+class Status(models.Model):
+    room = models.CharField(max_length=ROOM_LEN, primary_key=True)
+    text = models.TextField()
+
+
 class Complaint(models.Model):
     chat = models.ForeignKey('User', on_delete=models.DO_NOTHING)
     text = models.TextField()
@@ -16,4 +24,4 @@ class Complaint(models.Model):
 class User(models.Model):
     chat_id = models.IntegerField(primary_key=True)
     telephone_number = models.CharField(max_length=12)
-    room = models.CharField(max_length=5, blank=True, null=True)
+    room = models.CharField(max_length=ROOM_LEN, blank=True, null=True)

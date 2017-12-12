@@ -17,7 +17,7 @@ class Status(models.Model):
 
 
 class Complaint(models.Model):
-    chat = models.ForeignKey('User', on_delete=models.DO_NOTHING)
+    chat = models.ForeignKey('User', on_delete=models.CASCADE)
     text = models.TextField()
 
 

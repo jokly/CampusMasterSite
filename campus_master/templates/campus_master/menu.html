@@ -4,17 +4,19 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
+        {% with url_name=request.resolver_match.url_name %}
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item {% if url_name == 'main' %}active{% endif %}">
                 <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {% if url_name == 'status' %}active{% endif %}">
                 <a class="nav-link" href="/status">Статус комнат</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {% if url_name == 'complaints' %}active{% endif %}">
                 <a class="nav-link" href="/complaints">Жалобы</a>
             </li>
         </ul>
+        {% endwith %}
         <ul class="navbar-nav mt-2 mt-md-0">
             <li class="nav-item">
                 {% if user.is_authenticated %}

@@ -15,13 +15,22 @@ class Status(models.Model):
     room = models.CharField(max_length=ROOM_LEN, primary_key=True)
     text = models.TextField()
 
+    def __str__(self):
+        return 'Status: ' + self.room
+
 
 class Complaint(models.Model):
     chat = models.ForeignKey('User', on_delete=models.CASCADE)
     text = models.TextField()
+
+    def __str__(self):
+        return 'Complaint: ' + self.chat.room
 
 
 class User(models.Model):
     chat_id = models.IntegerField(primary_key=True)
     telephone_number = models.CharField(max_length=12)
     room = models.CharField(max_length=ROOM_LEN, blank=True, null=True)
+
+    def __str__(self):
+        return 'User [' + self.telephone_number + '] from ' + self.room

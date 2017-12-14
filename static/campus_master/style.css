@@ -2,4 +2,9 @@ body {
     min-height: 75rem;
     padding-top: 4.5rem;
 }
+
+img.emoji {
+    margin: 0px !important;
+    display: inline !important;
+}
   

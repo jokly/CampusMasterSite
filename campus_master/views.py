@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from datetime import datetime
 import xlwt
 from .models import Complaint, Status
 
@@ -50,5 +51,8 @@ def export_complaints_xls(request):
 
 def status(request):
     data = Status.objects.all()
+
+    for item in data:
+        item.timestamp = item.timestamp.strftime('%d.%m.%Y')
 
     return render(request, 'campus_master/status.html', {'data': data})

@@ -50,7 +50,7 @@ def export_complaints_xls(request):
 
 
 def status(request):
-    data = Status.objects.all()
+    data = Status.objects.order_by('-timestamp')
 
     for item in data:
         item.timestamp = item.timestamp.strftime('%d.%m.%Y')

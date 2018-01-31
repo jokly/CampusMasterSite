@@ -10,6 +10,9 @@ from .models import Complaint, Status
 def main(request):
     return render(request, 'campus_master/index.html', {})
 
+def bot(request):
+    return render(request, 'campus_master/bot.html', {})
+
 @login_required
 def complaints(request):
     data = Complaint.objects.all()

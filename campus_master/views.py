@@ -3,12 +3,14 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from datetime import datetime
 import xlwt
-from .models import Complaint, Status
+from .models import Complaint, Status, News
 
 # Create your views here.
 
 def main(request):
-    return render(request, 'campus_master/index.html', {})
+    data = News.objects.order_by('-created')
+
+    return render(request, 'campus_master/index.html', {'data': data})
 
 def bot(request):
     return render(request, 'campus_master/bot.html', {})

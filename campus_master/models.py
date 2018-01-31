@@ -7,6 +7,8 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from datetime import datetime
 from django.db import models
+from django.contrib.auth.models import User as Django_User
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 ROOM_LEN = 5
@@ -36,3 +38,12 @@ class User(models.Model):
 
     def __str__(self):
         return 'User [' + self.telephone_number + '] from ' + self.room
+
+
+class News(models.Model):
+    title = models.CharField(blank=True, max_length=250)
+    text = RichTextUploadingField()
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '{}'.format(self.title)

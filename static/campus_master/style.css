@@ -1,5 +1,4 @@
 body {
-    min-height: 75rem;
     padding-top: 4.5rem;
 }
 
@@ -11,4 +10,10 @@ img.emoji {
 .row+.row {
     margin-top: 1rem;
 }
-  
+
+.footer {
+    padding: 1rem;
+    margin-top: 1rem;
+    color: #777;
+    border-top: .05rem solid #e5e5e5;
+}

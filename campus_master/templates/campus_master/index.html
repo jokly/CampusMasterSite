@@ -1,6 +1,10 @@
 {% extends 'campus_master/base.html' %}
 
+{% load el_pagination_tags %}
+
 {% block content %}
+    {% paginate data %}
+    
     {% for item in data %}
         <div class="row">
             <div class="col-md-12">
@@ -17,4 +21,10 @@
             </div>
         </div>
     {% endfor %}
+    
+    <div class="row">
+        <div class="col-md-12 text-center">
+            {% show_pages %}
+        </div>
+    </div>
 {% endblock %}

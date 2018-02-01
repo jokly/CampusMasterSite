@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'campus_master',
     'ckeditor',
-    'ckeditor_uploader'
+    'ckeditor_uploader',
+    'el_pagination',
 ]
 
 MIDDLEWARE = [
